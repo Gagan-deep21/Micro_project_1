@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dresses Collection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Dresses Collection</h1>
+        <nav>
+            <a href="index1.html">Home</a> |
+            <a href="collection.html">Other Collection</a> |
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+    <main id= "mainBody"; style="text-align: center;">
+        <button id="mybtn">GET DRESS DATA</button>
+        <ul id="dressList"></ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Michael Kors. All rights reserved.</p>
+    </footer>
+    <script>
+        let myBool= true;
+        const btn= document.getElementById("mybtn");
+        btn.addEventListener("click", printData);
+        const myurl= 'http://localhost:3000/data'
+        async function callApi(url)
+        {
+            const result= await fetch(url)
+            const data = await result.json()
+            return data;
+        }
+        async function printData()
+        {  
+            try{
+            const resolve= await callApi(myurl)
+            const dressList = document.getElementById("dressList")
+            dressList.innerHTML=resolve.map(myData=>`
+            <li>
+                <strong>DRESS NAME: ${myData.name}</strong><br>
+                DRESS COLOR: ${myData.color}<br>
+                DRESS SIZE: ${myData.size}<br>
+                DRESS prize: ${myData.price}<br>
+                
+            </li> `).join('')
+            
+        }
+        catch{
+            alert("Something went wrong while fetching the data")
+            myBool=false;
+        }
+        if(myBool==true)
+        {
+            var btn2 = document.createElement("button");
+            btn2.innerHTML = "Hide Data";
+            document.getElementById("mainBody").appendChild(btn2);
+            myBool=false;    
+        }
+        btn2.addEventListener("click", ()=>
+         {
+        const dressList = document.getElementById("dressList")
+        dressList.innerHTML="<p>Press Get Dress Data to get back the data</p>"
+        btn2.remove()
+        myBool=true;
+        })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+[
+  {
+      "id": 1,
+      "name": "Michael Kors Evening Gown",
+      "color": "Red",
+      "size": "M",
+      "price": "$450"
+  },
+  {
+      "id": 2,
+      "name": "Michael Kors Cocktail Dress",
+      "color": "Black",
+      "size": "S",
+      "price": "$350"
+  },
+  {
+      "id": 3,
+      "name": "Michael Kors Casual Dress",
+      "color": "Blue",
+      "size": "L",
+      "price": "$250"
+  },
+  {
+      "id": 4,
+      "name": "Michael Kors Summer Dress",
+      "color": "White",
+      "size": "M",
+      "price": "$150"
+  },
+  {
+      "id": 5,
+      "name": "Michael Kors Party Dress",
+      "color": "Green",
+      "size": "S",
+      "price": "$400"
+  },
+  {
+      "id": 6,
+      "name": "Michael Kors Formal Dress",
+      "color": "Navy",
+      "size": "L",
+      "price": "$500"
+  }
+]
